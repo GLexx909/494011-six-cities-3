@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов» [![Build status][travis-image]][travis-url]
 
 * Студент: [Vitaliy Simonov](https://up.htmlacademy.ru/react/3/user/494011).
-* Наставник: `Неизвестно`.
+* Наставник: `Вадим Атрощенко`.
 
 ---
 
