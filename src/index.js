@@ -1,0 +1,10 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/app/app';
+
+const RENTAL_OFFERS = 312;
+
+ReactDOM.render(
+    <App rentalOffers={RENTAL_OFFERS}/>,
+    document.getElementById(`root`)
+);
