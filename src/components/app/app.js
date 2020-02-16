@@ -1,7 +1,16 @@
 import React from 'react';
 import Main from "../main/main";
+import PropTypes from "prop-types";
 
-{ /* eslint-disable-next-line react/prop-types        */}
-const App = ({rentalOffers}) => <Main rentalOffers={rentalOffers}/>;
+const App = ({rentalOffersCount, rentalOffersTitles}) => <Main rentalOffersCount={rentalOffersCount} rentalOffersTitles={rentalOffersTitles}/>;
+
+App.propTypes = {
+  rentalOffersCount: PropTypes.number,
+  rentalOffersTitles: PropTypes.arrayOf(PropTypes.string)
+};
+
+App.defaultProps = {
+  rentalOffersCount: 0
+};
 
 export default App;
