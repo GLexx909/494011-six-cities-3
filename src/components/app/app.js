@@ -2,7 +2,7 @@ import React from 'react';
 import Main from "../main/main";
 import PropTypes from "prop-types";
 
-const App = ({rentalOffersCount, rentalOffersTitles}) => <Main rentalOffersCount={rentalOffersCount} rentalOffersTitles={rentalOffersTitles}/>;
+const App = ({rentalOffersCount, rentalOffersTitles}) => <Main rentalOffersCount={rentalOffersCount} rentalOffersTitles={rentalOffersTitles} onMainButtonClick={() => `true`}/>;
 
 App.propTypes = {
   rentalOffersCount: PropTypes.number,
