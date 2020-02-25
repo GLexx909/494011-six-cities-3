@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Main from "./main";
+import OffersList from "./offers-list";
 
 const offers = [
   {
@@ -13,10 +13,10 @@ const offers = [
   }
 ];
 
-it(`<Main/> should render component`, () => {
+it(`<OffersList/> should render component`, () => {
   const tree = renderer
   .create(
-      <Main offers={offers} onMainButtonClick={() => {}}/>
+      <OffersList offers={offers} onMainButtonClick={() => {}}/>
   ).toJSON();
 
   expect(tree).toMatchSnapshot();
