@@ -53,7 +53,12 @@ const Main = ({offers, onMainButtonClick}) => (
 );
 
 Main.propTypes = {
-  offers: PropTypes.array.isRequired,
+  offers: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired
+      })
+  ),
   onMainButtonClick: PropTypes.func.isRequired
 };
 
