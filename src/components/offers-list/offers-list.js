@@ -29,7 +29,7 @@ const OffersList = ({onMainButtonClick, offers}) => (
     </form>
     <div className="cities__places-list places__list tabs__content">
       {offers.map((offer) =>
-        <OfferCard key={offer.title} offer={offer} onMainButtonClick={onMainButtonClick} handleMouseOver={() => {}}/>
+        <OfferCard key={offer.title} offer={offer} onMainButtonClick={onMainButtonClick} onHandleMouseOver={() => {}}/>
       )}
     </div>
   </section>

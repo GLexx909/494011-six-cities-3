@@ -10,7 +10,7 @@ const offer = {
 it(`<OfferCard/> should render component`, () => {
   const tree = renderer
   .create(
-      <OfferCard offer={offer} onMainButtonClick={() => {}} handleMouseOver={() => {}}/>
+      <OfferCard offer={offer} onMainButtonClick={() => {}} onHandleMouseOver={() => {}}/>
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

@@ -14,13 +14,13 @@ const offer = {
 
 it(`Should main button be pressed`, () => {
   const onCardButtonClick = jest.fn();
-  const handleMouseOver = jest.fn();
+  const onHandleMouseOver = jest.fn();
 
   const card = shallow(
       <OfferCard
         onMainButtonClick={onCardButtonClick}
         offer={offer}
-        handleMouseOver={handleMouseOver}/>
+        onHandleMouseOver={onHandleMouseOver}/>
   );
 
   const cardButton = card.find(`.place-card__name`);
@@ -30,5 +30,5 @@ it(`Should main button be pressed`, () => {
   placeCard.props().onMouseOver();
 
   expect(onCardButtonClick.mock.calls.length).toBe(1);
-  expect(handleMouseOver.mock.calls.length).toBe(1);
+  expect(onHandleMouseOver.mock.calls.length).toBe(1);
 });
