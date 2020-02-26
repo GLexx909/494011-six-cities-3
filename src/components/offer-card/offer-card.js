@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const OfferCard = ({onMainButtonClick, onHandleMouseOver, offer}) => {
+  const {title, price} = offer;
+
   return (
     <article className="cities__place-card place-card" onMouseOver={onHandleMouseOver}>
       <div className="place-card__mark">
@@ -15,7 +17,7 @@ const OfferCard = ({onMainButtonClick, onHandleMouseOver, offer}) => {
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
-            <b className="place-card__price-value">&euro;{offer.price}</b>
+            <b className="place-card__price-value">&euro;{price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
           <button className="place-card__bookmark-button button" type="button">
@@ -32,7 +34,7 @@ const OfferCard = ({onMainButtonClick, onHandleMouseOver, offer}) => {
           </div>
         </div>
         <h2 onClick={onMainButtonClick} className="place-card__name">
-          <a href="#">{offer.title}</a>
+          <a href="#">{title}</a>
         </h2>
         <p className="place-card__type">Apartment</p>
       </div>
