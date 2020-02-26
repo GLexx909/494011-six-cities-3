@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const OfferCard = ({onMainButtonClick, onHandleMouseOver, offer}) => {
-  const {title, price} = offer;
+const OfferCard = ({onMainButtonClick, onHandleMouseOver, offer: {title, price}}) => {
 
   return (
     <article className="cities__place-card place-card" onMouseOver={onHandleMouseOver}>
