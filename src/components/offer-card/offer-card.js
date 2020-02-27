@@ -1,16 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const OfferCard = ({onMainButtonClick, onHandleMouseOver, offer: {title, price}}) => {
+const OfferCard = ({onMainButtonClick, onHandleMouseOver, offer: {title, price, src, premium, housingType, rating}, index}) => {
+
+  const _renderPremium = () => {
+    if (premium) {
+      return (
+        <div className="place-card__mark">
+          <span>Premium</span>
+        </div>
+      );
+    }
+    return null;
+  };
+
+  const ratingCounting = () => {
+    const roundRating = Math.round(rating);
+    return roundRating * 20;
+  };
 
   return (
     <article className="cities__place-card place-card" onMouseOver={onHandleMouseOver}>
-      <div className="place-card__mark">
-        <span>Premium</span>
-      </div>
+      {_renderPremium()}
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
-          <img className="place-card__image" src="img/apartment-01.jpg" width="260" height="200" alt="Place image"/>
+          <img className="place-card__image" src={src} width="260" height="200" alt="Place image"/>
         </a>
       </div>
       <div className="place-card__info">
@@ -28,25 +42,40 @@ const OfferCard = ({onMainButtonClick, onHandleMouseOver, offer: {title, price}}
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `80%`}}></span>
+            <span style={{width: ratingCounting() + `%`}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 onClick={onMainButtonClick} className="place-card__name">
-          <a href="#">{title}</a>
+        <h2 className="place-card__name">
+          <a href="#" className="place-card__link" onClick={onMainButtonClick} data={index} >{title}</a>
         </h2>
-        <p className="place-card__type">Apartment</p>
+        <p className="place-card__type">{housingType}</p>
       </div>
     </article>
   );
 };
 
 OfferCard.propTypes = {
+  index: PropTypes.number.isRequired,
   onMainButtonClick: PropTypes.func.isRequired,
   onHandleMouseOver: PropTypes.func.isRequired,
   offer: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired
+    src: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    housingType: PropTypes.string.isRequired,
+    guestsNumber: PropTypes.string.isRequired,
+    bedrooms: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    premium: PropTypes.bool.isRequired,
+    images: PropTypes.arrayOf(PropTypes.string),
+    householdItems: PropTypes.arrayOf(PropTypes.string),
+    owner: PropTypes.shape({
+      image: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      isSuper: PropTypes.bool.isRequired,
+    })
   })
 };
 

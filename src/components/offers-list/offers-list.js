@@ -28,8 +28,8 @@ const OffersList = ({onMainButtonClick, offers}) => (
       {/* </select>*/}
     </form>
     <div className="cities__places-list places__list tabs__content">
-      {offers.map((offer) =>
-        <OfferCard key={offer.title} offer={offer} onMainButtonClick={onMainButtonClick} onHandleMouseOver={() => {}}/>
+      {offers.map((offer, index) =>
+        <OfferCard key={offer.title} offer={offer} index={index} onMainButtonClick={onMainButtonClick} onHandleMouseOver={() => {}}/>
       )}
     </div>
   </section>
@@ -40,7 +40,21 @@ OffersList.propTypes = {
   offers: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired
+        src: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        housingType: PropTypes.string.isRequired,
+        guestsNumber: PropTypes.string.isRequired,
+        bedrooms: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        rating: PropTypes.number.isRequired,
+        premium: PropTypes.bool.isRequired,
+        images: PropTypes.arrayOf(PropTypes.string),
+        householdItems: PropTypes.arrayOf(PropTypes.string),
+        owner: PropTypes.shape({
+          image: PropTypes.string.isRequired,
+          name: PropTypes.string.isRequired,
+          isSuper: PropTypes.bool.isRequired,
+        })
       })
   )
 };

@@ -111,7 +111,7 @@ exports[`<OffersList/> should render component 1`] = `
               className="place-card__price-value"
             >
               €
-              1000
+              120
             </b>
             <span
               className="place-card__price-text"
@@ -148,7 +148,7 @@ exports[`<OffersList/> should render component 1`] = `
             <span
               style={
                 Object {
-                  "width": "80%",
+                  "width": "100%",
                 }
               }
             />
@@ -161,12 +161,14 @@ exports[`<OffersList/> should render component 1`] = `
         </div>
         <h2
           className="place-card__name"
-          onClick={[Function]}
         >
           <a
+            className="place-card__link"
+            data={0}
             href="#"
+            onClick={[Function]}
           >
-            Title_1
+            Beautiful & luxurious apartment at great location
           </a>
         </h2>
         <p
@@ -181,13 +183,6 @@ exports[`<OffersList/> should render component 1`] = `
       onMouseOver={[Function]}
     >
       <div
-        className="place-card__mark"
-      >
-        <span>
-          Premium
-        </span>
-      </div>
-      <div
         className="cities__image-wrapper place-card__image-wrapper"
       >
         <a
@@ -197,7 +192,7 @@ exports[`<OffersList/> should render component 1`] = `
             alt="Place image"
             className="place-card__image"
             height="200"
-            src="img/apartment-01.jpg"
+            src="img/apartment-02.jpg"
             width="260"
           />
         </a>
@@ -215,7 +210,7 @@ exports[`<OffersList/> should render component 1`] = `
               className="place-card__price-value"
             >
               €
-              2000
+              80
             </b>
             <span
               className="place-card__price-text"
@@ -265,18 +260,20 @@ exports[`<OffersList/> should render component 1`] = `
         </div>
         <h2
           className="place-card__name"
-          onClick={[Function]}
         >
           <a
+            className="place-card__link"
+            data={1}
             href="#"
+            onClick={[Function]}
           >
-            Title_2
+            Wood and stone place
           </a>
         </h2>
         <p
           className="place-card__type"
         >
-          Apartment
+          Room
         </p>
       </div>
     </article>
