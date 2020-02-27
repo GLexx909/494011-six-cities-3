@@ -2,15 +2,15 @@ import React from 'react';
 import Main from "../main/main";
 import PropTypes from "prop-types";
 
-const App = ({rentalOffersCount, rentalOffersTitles}) => <Main rentalOffersCount={rentalOffersCount} rentalOffersTitles={rentalOffersTitles} onMainButtonClick={() => `true`}/>;
+const App = ({offers}) => <Main offers={offers} onMainButtonClick={() => `true`}/>;
 
 App.propTypes = {
-  rentalOffersCount: PropTypes.number,
-  rentalOffersTitles: PropTypes.arrayOf(PropTypes.string)
-};
-
-App.defaultProps = {
-  rentalOffersCount: 0
+  offers: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired
+      }).isRequired
+  )
 };
 
 export default App;
