@@ -3,17 +3,6 @@ import PropTypes from 'prop-types';
 
 const OfferCard = ({onMainButtonClick, onHandleMouseOver, offer: {title, price, src, premium, housingType, rating}, index}) => {
 
-  const _renderPremium = () => {
-    if (premium) {
-      return (
-        <div className="place-card__mark">
-          <span>Premium</span>
-        </div>
-      );
-    }
-    return null;
-  };
-
   const ratingCounting = () => {
     const roundRating = Math.round(rating);
     return roundRating * 20;
@@ -21,7 +10,7 @@ const OfferCard = ({onMainButtonClick, onHandleMouseOver, offer: {title, price, 
 
   return (
     <article className="cities__place-card place-card" onMouseOver={onHandleMouseOver}>
-      {_renderPremium()}
+      { premium ? <div className="place-card__mark"><span>Premium</span></div> : null }
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
           <img className="place-card__image" src={src} width="260" height="200" alt="Place image"/>

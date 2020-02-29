@@ -13,7 +13,7 @@ export default class App extends PureComponent {
     };
   }
 
-  onMainButtonClick(event) {
+  handleOfferTitleClick(event) {
     const offerIndex = event.target.getAttribute(`data`);
     this.setState({currentOfferIndex: offerIndex});
   }
@@ -24,9 +24,7 @@ export default class App extends PureComponent {
 
     if (index === -1) {
       return (
-        <Main offers={offers} onMainButtonClick={(event) => {
-          this.onMainButtonClick(event);
-        }}/>
+        <Main offers={offers} onMainButtonClick={this.handleOfferTitleClick.bind(this)}/>
       );
     }
 
