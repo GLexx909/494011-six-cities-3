@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {withRouter} from 'react-router-dom';
 
 const OfferDetailedInfo = ({offer: {title, price, images, description, premium, housingType, rating, bedrooms, guestsNumber, householdItems, owner: {image, name, isSuper}}}) => {
 
@@ -318,4 +319,4 @@ OfferDetailedInfo.propTypes = {
   }).isRequired
 };
 
-export default OfferDetailedInfo;
+export default withRouter(OfferDetailedInfo);

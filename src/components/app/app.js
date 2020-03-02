@@ -11,6 +11,8 @@ export default class App extends PureComponent {
     this.state = {
       currentOfferIndex: -1,
     };
+
+    this.handleOfferTitleClick = this.handleOfferTitleClick.bind(this);
   }
 
   handleOfferTitleClick(event) {
@@ -21,39 +23,34 @@ export default class App extends PureComponent {
   _renderApp() {
     const {offers} = this.props;
     const index = this.state.currentOfferIndex;
-
-    if (index === -1) {
-      return (
-        <Main offers={offers} onMainButtonClick={this.handleOfferTitleClick.bind(this)}/>
-      );
-    }
-
-    return this._renderOfferDetailedInfo();
-  }
-
-  _renderOfferDetailedInfo() {
-    const {offers} = this.props;
-    const index = this.state.currentOfferIndex;
     const offer = offers[index];
 
-    if (index !== -1) {
-      return (
-        <OfferDetailedInfo offer={offer}/>
-      );
+    if (index === -1) {
+      return <Main offers={offers} onMainButtonClick={this.handleOfferTitleClick}/>;
+    } else {
+      return <OfferDetailedInfo offer={offer}/>;
     }
-    return null;
   }
 
   render() {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path="/">
-            {this._renderApp()}
-          </Route>
-          <Route exact path="/dev-offer">
-            {this._renderOfferDetailedInfo()}
-          </Route>
+          <Route
+            exact={true}
+            path="/"
+            render={ () => this._renderApp() }
+          />
+          <Route
+            exact={true}
+            path="/dev-offer/:id"
+            render={({match}) => {
+              const {id} = match.params;
+              const {offers} = this.props;
+              const offer = offers[id];
+              return <OfferDetailedInfo offer={offer}/>;
+            }}
+          />
         </Switch>
       </BrowserRouter>
     );
