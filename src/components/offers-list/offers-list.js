@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import OfferCard from '../offer-card/offer-card';
+import GlobalProps from "../props/props";
 
 const OffersList = ({onMainButtonClick, offers}) => (
   <section className="cities__places places">
@@ -28,8 +29,8 @@ const OffersList = ({onMainButtonClick, offers}) => (
       {/* </select>*/}
     </form>
     <div className="cities__places-list places__list tabs__content">
-      {offers.map((offer) =>
-        <OfferCard key={offer.title} offer={offer} onMainButtonClick={onMainButtonClick} onHandleMouseOver={() => {}}/>
+      {offers.map((offer, index) =>
+        <OfferCard key={offer.title} offer={offer} index={index} onMainButtonClick={onMainButtonClick} onHandleMouseOver={() => {}}/>
       )}
     </div>
   </section>
@@ -37,12 +38,7 @@ const OffersList = ({onMainButtonClick, offers}) => (
 
 OffersList.propTypes = {
   onMainButtonClick: PropTypes.func.isRequired,
-  offers: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired
-      })
-  )
+  offers: PropTypes.arrayOf(GlobalProps.OFFER)
 };
 
 export default OffersList;
