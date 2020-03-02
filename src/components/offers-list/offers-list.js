@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import OfferCard from '../offer-card/offer-card';
+import GlobalProps from "../props/props";
 
 const OffersList = ({onMainButtonClick, offers}) => (
   <section className="cities__places places">
@@ -37,26 +38,7 @@ const OffersList = ({onMainButtonClick, offers}) => (
 
 OffersList.propTypes = {
   onMainButtonClick: PropTypes.func.isRequired,
-  offers: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        src: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        housingType: PropTypes.string.isRequired,
-        guestsNumber: PropTypes.string.isRequired,
-        bedrooms: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
-        rating: PropTypes.number.isRequired,
-        premium: PropTypes.bool.isRequired,
-        images: PropTypes.arrayOf(PropTypes.string),
-        householdItems: PropTypes.arrayOf(PropTypes.string),
-        owner: PropTypes.shape({
-          image: PropTypes.string.isRequired,
-          name: PropTypes.string.isRequired,
-          isSuper: PropTypes.bool.isRequired,
-        })
-      })
-  )
+  offers: PropTypes.arrayOf(GlobalProps.OFFER)
 };
 
 export default OffersList;

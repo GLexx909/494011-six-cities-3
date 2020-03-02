@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {withRouter} from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
+import GlobalProps from "../props/props";
 
 const OfferDetailedInfo = ({offer: {title, price, images, description, premium, housingType, rating, bedrooms, guestsNumber, householdItems, owner: {image, name, isSuper}}}) => {
 
@@ -34,9 +34,9 @@ const OfferDetailedInfo = ({offer: {title, price, images, description, premium, 
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <a className="header__logo-link" href="main.html">
+              <Link to="/" className="header__logo-link">
                 <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41"/>
-              </a>
+              </Link>
             </div>
             <nav className="header__nav">
               <ul className="header__nav-list">
@@ -299,24 +299,7 @@ const OfferDetailedInfo = ({offer: {title, price, images, description, premium, 
 };
 
 OfferDetailedInfo.propTypes = {
-  offer: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    housingType: PropTypes.string.isRequired,
-    guestsNumber: PropTypes.string.isRequired,
-    bedrooms: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    rating: PropTypes.number.isRequired,
-    premium: PropTypes.bool.isRequired,
-    images: PropTypes.arrayOf(PropTypes.string),
-    householdItems: PropTypes.arrayOf(PropTypes.string),
-    owner: PropTypes.shape({
-      image: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      isSuper: PropTypes.bool.isRequired,
-    })
-  }).isRequired
+  offer: GlobalProps.OFFER
 };
 
 export default withRouter(OfferDetailedInfo);
