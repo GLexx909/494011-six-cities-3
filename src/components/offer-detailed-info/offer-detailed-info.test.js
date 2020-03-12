@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import OfferDetailedInfo from "./offer-detailed-info";
+import {BrowserRouter} from "react-router-dom";
 
 const offer = {
   title: `Beautiful & luxurious apartment at great location`,
@@ -26,7 +27,9 @@ const offer = {
 it(`<OfferDetailedInfo/> should render component`, () => {
   const tree = renderer
   .create(
-      <OfferDetailedInfo offer={offer}/>
+      <BrowserRouter>
+        <OfferDetailedInfo offer={offer}/>
+      </BrowserRouter>
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

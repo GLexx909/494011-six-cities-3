@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import OfferCard from "./offer-card";
+import {BrowserRouter} from "react-router-dom";
 
 const offer = {
   title: `Beautiful & luxurious apartment at great location`,
@@ -26,7 +27,9 @@ const offer = {
 it(`<OfferCard/> should render component`, () => {
   const tree = renderer
   .create(
-      <OfferCard offer={offer} onMainButtonClick={() => {}} onHandleMouseOver={() => {}} index={0}/>
+      <BrowserRouter>
+        <OfferCard offer={offer} onMainButtonClick={() => {}} onHandleMouseOver={() => {}} index={0}/>
+      </BrowserRouter>
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

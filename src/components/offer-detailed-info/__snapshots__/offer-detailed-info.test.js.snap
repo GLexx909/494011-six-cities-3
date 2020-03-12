@@ -18,7 +18,8 @@ exports[`<OfferDetailedInfo/> should render component 1`] = `
         >
           <a
             className="header__logo-link"
-            href="main.html"
+            href="/"
+            onClick={[Function]}
           >
             <img
               alt="6 cities logo"

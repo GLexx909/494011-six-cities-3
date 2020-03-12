@@ -1,6 +1,7 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import renderer from "react-test-renderer";
 import OffersList from "./offers-list";
+import {BrowserRouter} from "react-router-dom";
 
 const offers = [
   {
@@ -48,7 +49,9 @@ const offers = [
 it(`<OffersList/> should render component`, () => {
   const tree = renderer
   .create(
-      <OffersList offers={offers} onMainButtonClick={() => {}}/>
+      <BrowserRouter>
+        <OffersList offers={offers} onMainButtonClick={() => {}}/>
+      </BrowserRouter>
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

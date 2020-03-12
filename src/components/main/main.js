@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import OffersList from '../offers-list/offers-list';
+import GlobalProps from "../props/props";
 
 const Main = ({offers, onMainButtonClick}) => (
   <main className="page__main page__main--index">
@@ -53,26 +54,7 @@ const Main = ({offers, onMainButtonClick}) => (
 );
 
 Main.propTypes = {
-  offers: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        src: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        housingType: PropTypes.string.isRequired,
-        guestsNumber: PropTypes.string.isRequired,
-        bedrooms: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
-        rating: PropTypes.number.isRequired,
-        premium: PropTypes.bool.isRequired,
-        images: PropTypes.arrayOf(PropTypes.string),
-        householdItems: PropTypes.arrayOf(PropTypes.string),
-        owner: PropTypes.shape({
-          image: PropTypes.string.isRequired,
-          name: PropTypes.string.isRequired,
-          isSuper: PropTypes.bool.isRequired,
-        })
-      })
-  ),
+  offers: PropTypes.arrayOf(GlobalProps.OFFER),
   onMainButtonClick: PropTypes.func.isRequired
 };
 
