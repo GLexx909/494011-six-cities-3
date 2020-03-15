@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import OffersList from '../offers-list/offers-list';
+import GlobalProps from "../props/props";
+import "../map/map";
+import Map from "../map/map";
 
 const Main = ({offers, onMainButtonClick}) => (
   <main className="page__main page__main--index">
@@ -45,7 +48,11 @@ const Main = ({offers, onMainButtonClick}) => (
       <div className="cities__places-container container">
         <OffersList offers={offers} onMainButtonClick={onMainButtonClick}/>
         <div className="cities__right-section">
-          <section className="cities__map map"></section>
+          <section className="cities__map map">
+            <div id="map" style={{width: `100%`, height: `100%`}}>
+              <Map offers={offers}/>
+            </div>
+          </section>
         </div>
       </div>
     </div>
@@ -53,26 +60,7 @@ const Main = ({offers, onMainButtonClick}) => (
 );
 
 Main.propTypes = {
-  offers: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        src: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        housingType: PropTypes.string.isRequired,
-        guestsNumber: PropTypes.string.isRequired,
-        bedrooms: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
-        rating: PropTypes.number.isRequired,
-        premium: PropTypes.bool.isRequired,
-        images: PropTypes.arrayOf(PropTypes.string),
-        householdItems: PropTypes.arrayOf(PropTypes.string),
-        owner: PropTypes.shape({
-          image: PropTypes.string.isRequired,
-          name: PropTypes.string.isRequired,
-          isSuper: PropTypes.bool.isRequired,
-        })
-      })
-  ),
+  offers: PropTypes.arrayOf(GlobalProps.OFFER),
   onMainButtonClick: PropTypes.func.isRequired
 };
 

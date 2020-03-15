@@ -17,6 +17,7 @@ export default {
       image: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       isSuper: PropTypes.bool.isRequired,
-    })
+    }),
+    cord: PropTypes.array
   }),
 };
