@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import OffersList from '../offers-list/offers-list';
 import GlobalProps from "../props/props";
+import "../map/map";
+import Map from "../map/map";
 
 const Main = ({offers, onMainButtonClick}) => (
   <main className="page__main page__main--index">
@@ -46,7 +48,11 @@ const Main = ({offers, onMainButtonClick}) => (
       <div className="cities__places-container container">
         <OffersList offers={offers} onMainButtonClick={onMainButtonClick}/>
         <div className="cities__right-section">
-          <section className="cities__map map"></section>
+          <section className="cities__map map">
+            <div id="map" style={{width: `100%`, height: `100%`}}>
+              <Map offers={offers}/>
+            </div>
+          </section>
         </div>
       </div>
     </div>
