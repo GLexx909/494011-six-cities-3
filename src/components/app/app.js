@@ -30,8 +30,8 @@ export default class App extends PureComponent {
             render={({match}) => {
               const {id} = match.params;
               const {offers} = this.props;
-              const offer = offers[id];
-              return <OfferDetailedInfo offer={offer}/>;
+              const offer = offers.filter((off) => off.id === +id)[0];
+              return <OfferDetailedInfo offer={offer} offers={offers} onMainButtonClick={() => {}}/>;
             }}
           />
         </Switch>
