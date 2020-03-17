@@ -261,8 +261,8 @@ exports[`<Main/> should render component 1`] = `
               >
                 <a
                   className="place-card__link"
-                  data={0}
-                  href="/dev-offer/0"
+                  data={1}
+                  href="/dev-offer/1"
                   onClick={[Function]}
                 >
                   Beautiful & luxurious apartment at great location
@@ -360,8 +360,8 @@ exports[`<Main/> should render component 1`] = `
               >
                 <a
                   className="place-card__link"
-                  data={1}
-                  href="/dev-offer/1"
+                  data={2}
+                  href="/dev-offer/2"
                   onClick={[Function]}
                 >
                   Wood and stone place
@@ -459,8 +459,8 @@ exports[`<Main/> should render component 1`] = `
               >
                 <a
                   className="place-card__link"
-                  data={2}
-                  href="/dev-offer/2"
+                  data={3}
+                  href="/dev-offer/3"
                   onClick={[Function]}
                 >
                   Canal View Prinsengracht
@@ -565,8 +565,8 @@ exports[`<Main/> should render component 1`] = `
               >
                 <a
                   className="place-card__link"
-                  data={3}
-                  href="/dev-offer/3"
+                  data={4}
+                  href="/dev-offer/4"
                   onClick={[Function]}
                 >
                   Nice, cozy, warm big bed apartment

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import GlobalProps from "../props/props";
 
-const OfferCard = ({onMainButtonClick, onHandleMouseOver, offer: {title, price, src, premium, housingType, rating}, index}) => {
+const OfferCard = ({onMainButtonClick, onHandleMouseOver, offer: {id, title, price, src, premium, housingType, rating}}) => {
 
   const ratingCounting = () => {
     const roundRating = Math.round(rating);
@@ -38,7 +38,7 @@ const OfferCard = ({onMainButtonClick, onHandleMouseOver, offer: {title, price, 
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to={`/dev-offer/${index}`} className="place-card__link" onClick={onMainButtonClick} data={index} >{title}</Link>
+          <Link to={`/dev-offer/${id}`} className="place-card__link" onClick={onMainButtonClick} data={id} >{title}</Link>
         </h2>
         <p className="place-card__type">{housingType}</p>
       </div>
@@ -47,7 +47,7 @@ const OfferCard = ({onMainButtonClick, onHandleMouseOver, offer: {title, price, 
 };
 
 OfferCard.propTypes = {
-  index: PropTypes.number.isRequired,
+  // index: PropTypes.number.isRequired,
   onMainButtonClick: PropTypes.func.isRequired,
   onHandleMouseOver: PropTypes.func.isRequired,
   offer: GlobalProps.OFFER

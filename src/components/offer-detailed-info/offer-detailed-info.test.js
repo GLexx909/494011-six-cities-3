@@ -8,7 +8,7 @@ it(`<OfferDetailedInfo/> should render component`, () => {
   const tree = renderer
   .create(
       <BrowserRouter>
-        <OfferDetailedInfo offer={offers[0]}/>
+        <OfferDetailedInfo offer={offers[0]} offers={offers} onMainButtonClick={() => {}}/>
       </BrowserRouter>
   ).toJSON();
 

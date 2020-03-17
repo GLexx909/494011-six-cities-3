@@ -2,15 +2,18 @@ import leaflet from 'leaflet';
 import PropTypes from 'prop-types';
 import GlobalProps from "../props/props";
 
-const Map = ({offers}) => {
+const Map = ({offers, currentOfferId}) => {
 
-  const cordsArray = offers.map((a) => a.cord);
-
-  document.addEventListener(`DOMContentLoaded`, () => {
+  function initializeMap() {
     const city = [52.38333, 4.9];
 
     const icon = leaflet.icon({
       iconUrl: `img/pin.svg`,
+      iconSize: [30, 30]
+    });
+
+    const iconActive = leaflet.icon({
+      iconUrl: `img/pin-active.svg`,
       iconSize: [30, 30]
     });
 
@@ -30,12 +33,29 @@ const Map = ({offers}) => {
     })
     .addTo(map);
 
-    cordsArray.forEach((item) => {
-      leaflet
-        .marker(item, {icon})
-        .addTo(map);
+    offers.forEach((offer) => {
+      let iconPin = offer.id === currentOfferId ? iconActive : icon;
+
+      leaflet.marker(offer.cord, {icon: iconPin}).addTo(map);
     });
-  });
+  }
+
+
+  if (document.getElementById(`map`)) {
+
+    const container = leaflet.DomUtil.get(`map`);
+    if (container !== null) {
+      // eslint-disable-next-line camelcase
+      container._leaflet_id = null;
+    }
+
+    initializeMap();
+
+  } else {
+    document.addEventListener(`DOMContentLoaded`, () => {
+      initializeMap();
+    });
+  }
 
   return true;
 };
